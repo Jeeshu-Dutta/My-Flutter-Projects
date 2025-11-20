@@ -71,16 +71,13 @@ class StateMealItemDetails extends State<MealItemDetailScreen> {
         child: (Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Hero(
-              tag: widget.caseStudy.id,
-              child: ClipRect(
-                child: Container(
-                  height: 200,
-                  width: double.infinity,
-                  child: Image.network(
-                    widget.caseStudy.imageUrl,
-                    fit: BoxFit.cover,
-                  ),
+            ClipRect(
+              child: Container(
+                height: 200,
+                width: double.infinity,
+                child: Image.network(
+                  widget.caseStudy.imageUrl,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

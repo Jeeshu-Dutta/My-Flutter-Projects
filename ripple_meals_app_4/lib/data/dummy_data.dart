@@ -948,7 +948,7 @@ var dummyCases = [
     ],
     title: 'The Uber Greyball Scandal',
     imageUrl:
-        'https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/99C1/production/_90816393_gettyimages-495298217.jpg.webp',
+        'https://images.indianexpress.com/2017/03/uber_reuters_big-1.jpg?w=414',
     keywords: [
       'Corporate Misconduct',
       'Regulatory Evasion',
@@ -985,7 +985,7 @@ var dummyCases = [
     ],
     title: 'The Tuskegee Syphilis Experiment',
     imageUrl:
-        'https://www.mcgill.ca/oss/files/oss/styles/hd/public/tuskegee_study.jpg?itok=QaQOKZlx&timestamp=1548275432',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqFIzu9ngt9KsHQcN2RlY0QZStH0m5CGPCRw&s',
     keywords: [
       'Medical Ethics Violation',
       'Human Experimentation',
@@ -2833,7 +2833,7 @@ var dummyCases = [
     ],
     title: 'The Global Shift to Remote Learning During COVID-19',
     imageUrl:
-        'https://assets.weforum.org/article/image/responsive_large_yMTDCpnSgHybsTgsvcOM7okUFY-QnelVfa_c9bj5ql0.JPG',
+        'https://s7d1.scene7.com/is/image/wbcollab/Cristobal_Inaki_2?qlt=90&fmt=webp&resMode=sharp2',
     keywords: [
       'Remote Learning',
       'Online Education',
@@ -3531,7 +3531,7 @@ var dummyCases = [
     ],
     title: 'Kristallnacht: The Night of Broken Glass',
     imageUrl:
-        'https://ichef.bbci.co.uk/news/480/cpsprodpb/1543B/production/_127599078_img46010.jpg.webp',
+        'https://i.guim.co.uk/img/static/sys-images/Books/Pix/pictures/2012/4/10/1334076013367/Wrecked-Jewish-shop-front-006.jpg?width=465&dpr=1&s=none&crop=none',
     keywords: [
       'Kristallnacht',
       'Night of Broken Glass',

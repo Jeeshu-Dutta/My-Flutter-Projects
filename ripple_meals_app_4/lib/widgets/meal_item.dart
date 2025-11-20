@@ -91,113 +91,110 @@ class _MealItemState extends State<MealItem> {
             ),
           );
         },
-        child: Hero(
-          tag: widget.casestudy.id,
-          child: ClipRect(
-            child: Container(
-              height: 200,
-              width: double.infinity,
-              child: Stack(
-                children: [
-                  FadeInImage(
-                    placeholder: MemoryImage(kTransparentImage),
-                    image: NetworkImage(widget.casestudy.imageUrl),
-                    fit: BoxFit.cover,
-                    height: 200,
-                    width: double.infinity,
-                  ),
-                  Positioned(
-                    right: 0,
-                    top: 0,
-                    child: Consumer(
-                      builder: (context, ref, child) {
-                        final favorites = ref.watch(favoritesCaseProvider);
-                        final isExisting = favorites.any((cs) => cs.id == widget.casestudy.id);
-                        return TextButton(
-                          onPressed: () {
-                            widget.onToggleFavorite(widget.casestudy);
-                            // Pass the new status (after toggle) to the message
-                            // Since the provider state won't update until after this callback finishes,
-                            // you might want to invert isExisting.
-                            favoriteToggleMessage(!isExisting);
-                          },
-                          child: AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 500),
-                            transitionBuilder: (child, animation) => RotationTransition(
-                              turns: Tween<double>(begin: 0.7, end: 0).animate(animation),
-                              child: child,
-                            ),
-                            child: Icon(
-                              Icons.star,
-                              color: isExisting ? Colors.red : Colors.white,
-                              key: ValueKey(isExisting),
-                            ),
+        child: ClipRect(
+          child: Container(
+            height: 200,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                FadeInImage(
+                  placeholder: MemoryImage(kTransparentImage),
+                  image: NetworkImage(widget.casestudy.imageUrl),
+                  fit: BoxFit.cover,
+                  height: 200,
+                  width: double.infinity,
+                ),
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: Consumer(
+                    builder: (context, ref, child) {
+                      final favorites = ref.watch(favoritesCaseProvider);
+                      final isExisting = favorites.any((cs) => cs.id == widget.casestudy.id);
+                      return TextButton(
+                        onPressed: () {
+                          widget.onToggleFavorite(widget.casestudy);
+                          // Pass the new status (after toggle) to the message
+                          // Since the provider state won't update until after this callback finishes,
+                          // you might want to invert isExisting.
+                          favoriteToggleMessage(!isExisting);
+                        },
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 500),
+                          transitionBuilder: (child, animation) => RotationTransition(
+                            turns: Tween<double>(begin: 0.7, end: 0).animate(animation),
+                            child: child,
                           ),
-                        );
-                      },
-                    ),
+                          child: Icon(
+                            Icons.star,
+                            color: isExisting ? Colors.red : Colors.white,
+                            key: ValueKey(isExisting),
+                          ),
+                        ),
+                      );
+                    },
                   ),
+                ),
 
-                  Positioned(
-                    right: 0,
-                    left: 0,
-                    bottom: 0,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: double.maxFinite,
-                          child: Container(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            color: Colors.black38,
-                            child: Column(
-                              children: [
-                                Text(
-                                  widget.casestudy.title,
-                                  style: GoogleFonts.lora(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
+                Positioned(
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                          color: Colors.black38,
+                          child: Column(
+                            children: [
+                              Text(
+                                widget.casestudy.title,
+                                style: GoogleFonts.lora(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                softWrap: true,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  MealItemMetadata(
+                                    icon: Icons.calendar_month,
+                                    label: "${widget.casestudy.duration} years",
                                   ),
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    MealItemMetadata(
-                                      icon: Icons.calendar_month,
-                                      label: "${widget.casestudy.duration} years",
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    MealItemMetadata(
-                                      icon: Icons.psychology,
-                                      label: complexityText,
-                                    ),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    MealItemMetadata(
-                                      icon: Icons.warning,
-                                      label: affordableText,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  MealItemMetadata(
+                                    icon: Icons.psychology,
+                                    label: complexityText,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  MealItemMetadata(
+                                    icon: Icons.warning,
+                                    label: affordableText,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: 3,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
